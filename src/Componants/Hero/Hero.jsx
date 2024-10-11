@@ -15,18 +15,16 @@ const Hero = ({ heroData, playStatus, setPlayStatus, heroCount, setHeroCount }) 
                     <p>Explore the features!</p>
                     <img className='button-nav-img' src={arrow} />
                 </div>
-                <div onClick={()=>{setPlayStatus(!playStatus)}} className="play-pause">
-                    <img src={playStatus?pause:play} alt="" width="40" height="40" />
-                    <span>{playStatus?"Pause":"Play"} the video</span>
+                <div onClick={() => { setPlayStatus(!playStatus) }} className="play-pause">
+                    <img src={playStatus ? pause : play} alt="" width="40" height="40" />
+                    <span>{playStatus ? "Pause" : "Play"} the video</span>
                 </div>
             </div>
-                <div className='crousal-dots'>
-                    <ul>
-                        <li onClick={() => { setHeroCount(0) }} className={heroCount === 0 ? "hero-dot orange" : "hero-dot"}></li>
-                        <li onClick={() => { setHeroCount(1) }} className={heroCount === 1 ? "hero-dot orange" : "hero-dot"}></li>
-                        <li onClick={() => { setHeroCount(2) }} className={heroCount === 2 ? "hero-dot orange" : "hero-dot"}></li>
-                    </ul>
-                </div>
+            <ul>
+                <li onClick={() => { setHeroCount(0) }} className={heroCount === 0 ? "hero-dot orange" : "hero-dot"}></li>
+                <li onClick={() => { setHeroCount(1) }} className={heroCount === 1 ? "hero-dot orange" : "hero-dot"}></li>
+                <li onClick={() => { setHeroCount(2) }} className={heroCount === 2 ? "hero-dot orange" : "hero-dot"}></li>
+            </ul>
         </div>
     )
 }

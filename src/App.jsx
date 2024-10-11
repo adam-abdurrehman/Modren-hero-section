@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './index.css'
 import Background from './Componants/Background/Background';
 import Navbar from './Componants/Navbar/Navbar';
@@ -10,8 +10,15 @@ const App = () => {
     {text1: "Indulge",text2: "your passions"},
     {text1: "Give in to",text2: "your passions"},
   ]
-  const [heroCount, setheroCount] = useState(2);
+  const [heroCount, setHeroCount] = useState(0);
   const [playStatus, setPlayStatus] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+        setHeroCount((count)=>{ return count===2?0:count+1})
+    }, 3000);
+  }, [])
+  
   return (
     <div className='main'>
     <Background playStatus={playStatus} heroCount={heroCount}/>
@@ -19,7 +26,7 @@ const App = () => {
     <Hero
     heroData={heroData[heroCount]}
     heroCount={heroCount}
-    setheroCount={setheroCount}
+    setHeroCount={setHeroCount}
     playStatus={playStatus}
     setPlayStatus={setPlayStatus}
      />
